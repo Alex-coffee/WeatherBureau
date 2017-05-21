@@ -1,0 +1,85 @@
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="proCtrl as chart">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>最近天气</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr ng-repeat="w in weatherList">
+                                <td>{{w.date}}</td>
+                                <td class="text-info"><i class="wi {{wi}} fa fa-2x m-r-xs" ng-repeat="wi in w.weatherIcon"/></td>
+                                <td>{{w.weather}}</td>
+                                <td>{{w.temp}}</td>
+                                <td>{{w.windDirection}}</td>
+                                <td>{{w.windLevel}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <div class="btn-group btn-group-xs pull-right">
+                        <button class="btn btn-white active">本周</button>
+                        <button class="btn btn-white">未来15天</button>
+                        <button class="btn btn-white">未来30天</button>
+                    </div>
+
+                    <h5>气温与用电负荷预测</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="alert alert-warning">
+                        <i class="fa fa-warning m-r-xs"></i>
+                        预计5天后将会有极端高温天气，请预先安排生产任务
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-7 m-b-md">
+                            <div class="flot-chart">
+                                <div flot class="flot-chart-content" dataset="chart.flotData" options="chart.flotOptions"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 m-b-md">
+                            <ul class="stat-list">
+                                <li>
+                                    <h2 class="no-margins">4,346</h2>
+                                    <small>当前用电量 : 电能产量</small>
+                                    <div class="stat-percent">同比增长18% <i class="fa fa-level-up text-navy"></i></div>
+                                    <div class="progress progress-mini">
+                                        <div style="width: 48%;" class="progress-bar"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2 class="no-margins ">6,587</h2>
+                                    <small>预计5天后用电量 : 电能产量</small>
+                                    <div class="stat-percent">预计增长32%  <i class="fa fa-level-up text-warning"></i></div>
+                                    <div class="progress progress-mini ">
+                                        <div style="width: 60%;" class="progress-bar progress-bar-warning"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2 class="no-margins ">9,180</h2>
+                                    <small>预计10天后用电量 : 电能产量</small>
+                                    <div class="stat-percent">预计增长42% <i class="fa fa-level-up text-navy text-danger"></i></div>
+                                    <div class="progress progress-mini ">
+                                        <div style="width: 82%;" class="progress-bar progress-bar-danger"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

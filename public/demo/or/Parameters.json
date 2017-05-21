@@ -1,0 +1,1 @@
+{"maxNumFlightServeEachStaff":8,"maxNumFlightsServedPerTraval":3,"maxTurnTimeBetweenTwoShifts":1120,"maxTurnTimeBetweenTwoTasks":30,"minNumFlightServeEachStaff":4,"serveTimeForDomestic":60,"serveTimeForInternational":70,"travelTimeFromHubToGate":15}

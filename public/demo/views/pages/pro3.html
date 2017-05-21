@@ -1,0 +1,106 @@
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="proCtrl as chart">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>最近天气</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="flot-chart m-b-md">
+                        <div flot class="flot-chart-content" dataset="chart.flotData2" options="chart.flotOptions2"></div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr ng-repeat="w in weatherList">
+                                <td>{{w.date}}</td>
+                                <td class="text-info"><i class="wi {{wi}} fa fa-2x m-r-xs" ng-repeat="wi in w.weatherIcon"/></td>
+                                <td>{{w.weather}}</td>
+                                <td>{{w.temp}}</td>
+                                <td>{{w.windDirection}}</td>
+                                <td>{{w.windLevel}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-7">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <div class="btn-group btn-group-xs pull-right">
+                        <button class="btn btn-white active">本周</button>
+                        <button class="btn btn-white">未来15天</button>
+                        <button class="btn btn-white">未来30天</button>
+                    </div>
+
+                    <h5>花期与路线推荐</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="alert alert-success">
+                        <i class="fa fa-lightbulb-o m-r-xs"></i>
+                        桃花花季即将到来，<a href="#">点击查看推荐路线</a>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-12 m-b-md">
+
+                            <table class="table table-hover margin bottom">
+                                <thead>
+                                <tr>
+                                    <th>种类</th>
+                                    <th>花期时间</th>
+                                    <th>赏花地点</th>
+                                    <th>路线</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="f in flowerList">
+                                    <td>{{f.name}}</td>
+                                    <td>{{f.timeRange}}</td>
+                                    <td>{{f.location}}</td>
+                                    <td>
+                                        <button class="btn btn-xs btn-success">
+                                            推荐路线
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div vector-map map-name="cn_mill" style="height: 300px;" my-map-data="chart.mapData2"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-5 m-b-md">
+            <h3 class="m-b-md">观赏桃花的推荐路线</h3>
+            <div id="vertical-timeline" class="vertical-container light-timeline no-margins">
+                <div class="vertical-timeline-block" ng-repeat="t in tourList">
+                    <div class="vertical-timeline-icon yellow-bg">
+                        <i class="fa fa-flag"></i>
+                    </div>
+
+                    <div class="vertical-timeline-content">
+                        <h2>{{t.title}}</h2>
+                        <p>{{t.description}}</p>
+                        <a href="#" class="btn btn-sm btn-primary">更多</a>
+                        <span class="vertical-date">
+                                        Today <br>
+                                        <small>Dec 24</small>
+                                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

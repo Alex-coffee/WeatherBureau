@@ -1,0 +1,166 @@
+<div class="wrapper wrapper-content animated fadeIn" ng-controller="internalCtrl as chart">
+
+    <div class="p-w-md m-t-sm">
+        <div class="row">
+
+            <div class="col-sm-4 m-b-lg">
+                <h1 class="m-b-xs">
+                    26,900
+                </h1>
+                <small>
+                    当月数据服务收入
+                </small>
+                <div class="m-b-sm">
+                    <div sparkline spark-data="chart.sparkline1" spark-options="chart.sparkline1Options"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <small class="stats-label">当月请求用户数</small>
+                        <h4>236321</h4>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <small class="stats-label">同比增长率%</small>
+                        <h4>36.11%</h4>
+                    </div>
+                    <div class="col-xs-4">
+                        <small class="stats-label">上周收入</small>
+                        <h4>4320.21</h4>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4 m-b-lg">
+                <h1 class="m-b-xs">
+                    98,100
+                </h1>
+                <small>
+                    当日数据服务收入
+                </small>
+                <div class="m-b-sm">
+                    <div sparkline spark-data="chart.sparkline2" spark-options="chart.sparkline2Options"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <small class="stats-label">当日请求用户数</small>
+                        <h4>1667</h4>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <small class="stats-label">同比增长率%</small>
+                        <h4>22.45%</h4>
+                    </div>
+                    <div class="col-xs-4">
+                        <small class="stats-label">本周收入</small>
+                        <h4>2862.044</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 m-b-lg">
+
+                <div class="row m-t-xs">
+                    <div class="col-xs-6">
+                        <h3 class="m-b-md">本月净收入</h3>
+                        <h1 class="m-b-md">160,00</h1>
+                        <div class="font-bold text-navy">环比增加 28% <i class="fa fa-level-up"></i></div>
+                    </div>
+                    <div class="col-xs-6">
+                        <h3 class="m-b-md">当年金收入</h3>
+                        <h1 class="m-b-md">1,422,120</h1>
+                        <div class="font-bold text-navy">环比增加 38% <i class="fa fa-level-up"></i></div>
+                    </div>
+                </div>
+
+
+                <table class="table small m-t-sm">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <strong>30%</strong> 旅游
+
+                        </td>
+                        <td>
+                            <strong>40%</strong> 旅游
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>30%</strong> 交通
+                        </td>
+                        <td>
+                            <strong>40%</strong> 交通
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>40%</strong> 电力
+                        </td>
+                        <td>
+                            <strong>20%</strong> 电力
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <!--<div class="small pull-left col-md-3 m-l-lg m-t-md">-->
+                    <!--<strong>Sales char</strong> have evolved over the years sometimes.-->
+                <!--</div>-->
+                <!--<div class="small pull-right col-md-3 m-t-md text-right">-->
+                    <!--<strong>There are many</strong> variations of passages of Lorem Ipsum available, but the majority have suffered.-->
+                <!--</div>-->
+                <div class="flot-chart m-b-xl">
+
+                    <div class="flot-chart m-b-xl">
+                        <div flot class="flot-chart-content" dataset="chart.flotData" options="chart.flotOptions"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox">
+
+                    <div class="ibox-content">
+
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>购买方</th>
+                                    <th>经手人</th>
+                                    <th>服务名</th>
+                                    <th>日期</th>
+                                    <th>金额</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr ng-repeat="income in incomeList">
+                                    <td>{{income.source}}</td>
+                                    <td>{{income.operator}}</td>
+                                    <td>{{income.content}}</td>
+                                    <td>{{income.date}}</td>
+                                    <td>{{income.amount}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

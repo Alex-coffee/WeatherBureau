@@ -1,0 +1,49 @@
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="distanceCtrl">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>登机口距离</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <div pajinate data-source="dataList" data-page-size="10" >
+
+                        <form id="flightForm" novalidate>
+
+                            <table class="table table-striped table-bordered table-hover " >
+                                <thead>
+                                <tr>
+                                    <th>{{'fromGate' | translate}}</th>
+                                    <th>{{'toGate' | translate}}</th>
+                                    <th>{{'travelTime' | translate}}</th>
+                                </tr>
+                                </thead>
+                                <tbody class="content">
+                                <tr ng-repeat="d in dataList">
+                                    <td>{{d.fromGate}}</td>
+                                    <td>{{d.toGate}}</td>
+                                    <td>{{d.travelTime}}</td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+
+                        </form>
+
+                        <div class="clearfix"></div>
+                        <div class="page_navigation"></div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,88 @@
+<div class="wrapper wrapper-content animated fadeIn" ng-controller="internalCtrl as chart">
+
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>文档分发列表</h5>
+                </div>
+
+                <div class="ibox-content">
+
+                    <div>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>文档名称</th>
+                                <th>发送日期</th>
+                                <th>发送状态</th>
+                                <th>阅读比例</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+
+                            <tbody ng-repeat="doc in docList">
+                                <tr>
+                                    <td><i class="fa fa-file-pdf-o m-r-xs"/>{{doc.name}}</td>
+                                    <td>{{doc.date}}</td>
+                                    <td>
+                                        <span class="badge badge-primary">
+                                            {{doc.status}}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="progress progress-mini">
+                                            <div style="width: {{doc.progress}}%;" class="progress-bar"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group btn-group-xs">
+                                            <button ng-if="!doc.isShow" class="btn btn-white" ng-click="doc.isShow = true">
+                                                <i class="fa fa-plus m-r-xs"></i>展开
+                                            </button>
+                                            <button ng-if="doc.isShow" class="btn btn-white" ng-click="doc.isShow = false">
+                                                <i class="fa fa-minus m-r-xs"></i>收起
+                                            </button>
+                                            <button class="btn btn-white" ng-click="showPDFModal()">
+                                                <i class="fa fa-eye m-r-xs"></i>查看
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr ng-show="doc.isShow">
+                                    <td colspan="5">
+                                        <table class="table table-striped m-l-md">
+                                            <tr>
+                                                <th>收件人</th>
+                                                <th>日期</th>
+                                                <th>状态</th>
+                                                <th></th>
+                                            </tr>
+                                            <tr ng-repeat="t in doc.targetList">
+                                                <td>{{t.name}}</td>
+                                                <td>{{t.date}}</td>
+                                                <td>
+                                                    <span ng-class="{'label-primary': t.status == '已阅读', 'label-default': t.status == '未阅读'}"
+                                                          class="label">{{t.status}}</span>
+                                                </td>
+                                                <td>
+                                                    <button ng-disabled="t.status == '未阅读'" class="btn btn-xs btn-warning">
+                                                        <i class="fa fa-eye m-r-xs"></i>提醒
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

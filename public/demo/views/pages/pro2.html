@@ -1,0 +1,74 @@
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="proCtrl as chart">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>最近天气</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr ng-repeat="w in weatherList">
+                                <td>{{w.date}}</td>
+                                <td class="text-info"><i class="wi {{wi}} fa fa-2x m-r-xs" ng-repeat="wi in w.weatherIcon"/></td>
+                                <td>{{w.weather}}</td>
+                                <td>{{w.temp}}</td>
+                                <td>{{w.windDirection}}</td>
+                                <td>{{w.windLevel}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>雨雪天道路预警</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-6 m-b-md">
+                            <table class="table table-hover margin bottom">
+                                <thead>
+                                <tr>
+                                    <th>省份</th>
+                                    <th>主要道路</th>
+                                    <th>道路区域</th>
+                                    <th>时间范围</th>
+                                    <th>主要因素</th>
+                                    <th>预警等级</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="w in warningList">
+                                    <td>{{w.province}}</td>
+                                    <td>{{w.road}}</td>
+                                    <td>{{w.section}}</td>
+                                    <td>{{w.timeRange}}</td>
+                                    <td class="text-navy">
+                                        <i class="wi {{wi}} fa fa-lg m-r-xs" ng-repeat="wi in w.weatherIcon"/>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-danger" ng-if="w.level == 'danger'">预警等级高</span>
+                                        <span class="badge badge-warning" ng-if="w.level == 'warning'">预警等级中</span>
+                                        <span class="badge badge-success" ng-if="w.level == 'minor'">预警等级低</span>
+                                    </td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-lg-6 m-b-md">
+                            <div vector-map map-name="cn_mill" style="height: 300px;" my-map-data="chart.mapData" scale-color="scaleColor"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

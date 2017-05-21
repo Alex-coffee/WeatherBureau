@@ -1,0 +1,35 @@
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="parameterCtrl">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>参数设置</h5>
+                </div>
+
+                <div class="ibox-content">
+                    <form id="paramForm" class="form-horizontal">
+                        <div class="form-group parameter-item" ng-repeat="(key, paramObj) in parameters">
+                            <label class="col-sm-4 control-label">
+                                {{key | translate}}
+                            </label>
+
+                            <div class="col-sm-8">
+                                <input type="number" ng-model="parameters[key]" class="form-control" required>
+
+                            </div>
+                        </div>
+                    </form>
+
+                    <button class="btn btn-primary pull-right" ng-click="save()">
+                        保存
+                    </button>
+
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
