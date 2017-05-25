@@ -245,6 +245,38 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
             }
         }
     })
+    .state('tool.public', {
+        url: "/public",
+        templateUrl: "demo/views/pages/public.html",
+        data: { pageTitle: '通用咨询', access: {isFree: false}},
+        resolve: {
+            loadPlugin: function ($ocLazyLoad) {
+                return $ocLazyLoad.load([
+                    {
+                        serie: true,
+                        name: 'angular-flot',
+                        files: [
+                            'resources/js/plugins/flot/jquery.flot.js',
+                            'resources/js/plugins/flot/jquery.flot.time.js',
+                            'resources/js/plugins/flot/jquery.flot.tooltip.min.js',
+                            'resources/js/plugins/flot/jquery.flot.spline.js',
+                            'resources/js/plugins/flot/jquery.flot.resize.js',
+                            'resources/js/plugins/flot/jquery.flot.pie.js',
+                            'resources/js/plugins/flot/curvedLines.js',
+                            'resources/js/plugins/flot/angular-flot.js'
+                        ]
+                    },
+                    {
+                        name: 'piApp',
+                        files:[
+                            'demo/js/controllers/proCtrl.js',
+                            'demo/js/controllers/publicCtrl.js'
+                        ]
+                    }
+                ]);
+            }
+        }
+    })
 
     ;
 
